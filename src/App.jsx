@@ -2,10 +2,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import Contact from './pages/Contact'
+import Home from './Pages/Home'        // ← Capital 'P'
+import About from './Pages/About'      // ← Capital 'P'
+import Projects from './Pages/Projects' // ← Capital 'P'
+import Contact from './Pages/Contact'  // ← Capital 'P'
 import Footer from './components/Footer'
 
 function App() {
