@@ -45,6 +45,15 @@ const Home = () => {
       title: 'Task Management',
       description: 'Jira, Trello, Asana, Notion',
       gradient: 'from-indigo-500 to-violet-500'
+    },
+    // ✅ NEW: Download CV Feature Card (Updated Path)
+    {
+      icon: '📄',
+      title: 'Download CV',
+      description: 'Get my full resume in PDF format',
+      gradient: 'from-emerald-500 to-teal-500',
+      isDownload: true,
+      downloadLink: '/A.D F(1).pdf'  // ✅ Updated path
     }
   ]
 
@@ -126,6 +135,20 @@ const Home = () => {
                 <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
             </Link>
+            {/* ✅ UPDATED: Download CV Button with correct path */}
+            <a 
+              href="/A.D F(1).pdf" 
+              download="A.D F(1).pdf"
+              className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl transition shadow-md hover:scale-105 hover:shadow-emerald-500/25 relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download CV
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-emerald-700 to-teal-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
           </div>
           
           {/* Features Section with staggered animations */}
@@ -133,17 +156,57 @@ const Home = () => {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 group animate-fade-in-up"
+                className={`bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 group animate-fade-in-up ${
+                  feature.isDownload ? 'hover:shadow-emerald-500/30 cursor-pointer' : ''
+                }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center text-2xl font-bold text-white mb-4 group-hover:scale-110 transition shadow-lg group-hover:shadow-xl relative overflow-hidden`}>
-                  {feature.icon}
-                  <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                </div>
-                <h3 className="font-bold text-gray-800 text-lg">{feature.title}</h3>
-                <p className="text-sm text-gray-500 mt-1">{feature.description}</p>
+                {/* ✅ If download feature, wrap in anchor tag */}
+                {feature.isDownload ? (
+                  <a 
+                    href={feature.downloadLink} 
+                    download="A.D F(1).pdf"
+                    className="block"
+                  >
+                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center text-2xl font-bold text-white mb-4 group-hover:scale-110 transition shadow-lg group-hover:shadow-xl relative overflow-hidden`}>
+                      {feature.icon}
+                      <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-lg flex items-center justify-center gap-2">
+                      {feature.title}
+                      <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-normal">PDF</span>
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">{feature.description}</p>
+                  </a>
+                ) : (
+                  // ✅ Normal feature card (no download)
+                  <>
+                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center text-2xl font-bold text-white mb-4 group-hover:scale-110 transition shadow-lg group-hover:shadow-xl relative overflow-hidden`}>
+                      {feature.icon}
+                      <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-lg">{feature.title}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{feature.description}</p>
+                  </>
+                )}
               </div>
             ))}
+          </div>
+
+          {/* ✅ EXTRA: Floating Download Button with correct path */}
+          <div className="fixed bottom-8 right-8 z-50 animate-bounce-slow">
+            <a 
+              href="/A.D F(1).pdf" 
+              download="A.D F(1).pdf"
+              className="flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-emerald-500/40 transition-all hover:scale-110 group"
+              title="Download CV"
+            >
+              <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span className="hidden md:inline">Download CV</span>
+              <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">PDF</span>
+            </a>
           </div>
         </div>
       </div>
@@ -175,6 +238,10 @@ const Home = () => {
           from { opacity: 0; transform: scale(0.9); }
           to { opacity: 1; transform: scale(1); }
         }
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
         
         .animate-float {
           animation: float 6s ease-in-out infinite;
@@ -196,6 +263,9 @@ const Home = () => {
         .animate-gradient {
           background-size: 200% 200%;
           animation: gradient 4s ease-in-out infinite;
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
         }
         .animation-delay-200 {
           animation-delay: 200ms;
