@@ -76,7 +76,7 @@ const About = () => {
   ]
 
   const techSkills = [
-    { name: 'React & Redux', icon: <FontAwesomeIcon icon={faReact} className="text-blue-500 text-2xl" />, color: 'bg-blue-100 text-blue-600' },
+    { name: 'React, Redux and Nuxt.js', icon: <FontAwesomeIcon icon={faReact} className="text-blue-500 text-2xl" />, color: 'bg-blue-100 text-blue-600' },
     { name: 'Next.js', icon: <FontAwesomeIcon icon={faServer} className="text-black text-2xl" />, color: 'bg-gray-100 text-gray-700' },
     { name: 'JavaScript', icon: <FontAwesomeIcon icon={faJs} className="text-yellow-400 text-2xl" />, color: 'bg-yellow-100 text-yellow-600' },
     { name: 'TypeScript', icon: <FontAwesomeIcon icon={faCode} className="text-blue-500 text-2xl" />, color: 'bg-blue-100 text-blue-600' },
