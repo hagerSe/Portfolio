@@ -118,7 +118,7 @@ const Home = () => {
 
           {/* Subtitle with animation */}
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-200">
-            Building amazing websites and experiences with React, Tailwind CSS, and Node.js to solve real problems.
+            Building amazing websites and experiences with React.js, Nuxt.js,Tailwind CSS, and Node.js to solve real problems.
           </p>
           
           {/* CTA Buttons with hover animations */}

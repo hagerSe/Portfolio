@@ -149,6 +149,7 @@ const About = () => {
             <h3 className="font-bold text-gray-800 mb-2 text-lg">🎯 Core Skills</h3>
             <div className="flex flex-wrap gap-1.5">
               <span className="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full font-medium">React</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full font-medium">Nuxt.js</span>
               <span className="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full font-medium">Node.js</span>
               <span className="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full font-medium">Express</span>
               <span className="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs rounded-full font-medium">Next.js</span>
